@@ -13,9 +13,12 @@
 		BE4470D228E644B8008DF0C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4470D028E644B8008DF0C1 /* Main.storyboard */; };
 		BE4470D428E644B9008DF0C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE4470D328E644B9008DF0C1 /* Assets.xcassets */; };
 		BE4470D728E644B9008DF0C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4470D528E644B9008DF0C1 /* LaunchScreen.storyboard */; };
+		BEC09DE528EE202C00570C1C /* SoapRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC09DE428EE202C00570C1C /* SoapRequest.swift */; };
+		D6AE24D51236C95333638CF1 /* Pods_SoapServiceConsumeExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4DFFA5C7E659980FF716F2 /* Pods_SoapServiceConsumeExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7397F70C75EE25F1F82A7128 /* Pods-SoapServiceConsumeExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoapServiceConsumeExample.release.xcconfig"; path = "Target Support Files/Pods-SoapServiceConsumeExample/Pods-SoapServiceConsumeExample.release.xcconfig"; sourceTree = "<group>"; };
 		BE4470C728E644B8008DF0C1 /* SoapServiceConsumeExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoapServiceConsumeExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE4470CA28E644B8008DF0C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE4470CC28E644B8008DF0C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,9 @@
 		BE4470D328E644B9008DF0C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE4470D628E644B9008DF0C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE4470D828E644B9008DF0C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEC09DE428EE202C00570C1C /* SoapRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoapRequest.swift; sourceTree = "<group>"; };
+		CF4DFFA5C7E659980FF716F2 /* Pods_SoapServiceConsumeExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoapServiceConsumeExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1A296EEC347BD53DD36D32B /* Pods-SoapServiceConsumeExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoapServiceConsumeExample.debug.xcconfig"; path = "Target Support Files/Pods-SoapServiceConsumeExample/Pods-SoapServiceConsumeExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6AE24D51236C95333638CF1 /* Pods_SoapServiceConsumeExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A783B74BB4FD50061EC4DE2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D1A296EEC347BD53DD36D32B /* Pods-SoapServiceConsumeExample.debug.xcconfig */,
+				7397F70C75EE25F1F82A7128 /* Pods-SoapServiceConsumeExample.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9C6E7B8F011EAF18D390E984 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF4DFFA5C7E659980FF716F2 /* Pods_SoapServiceConsumeExample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BE4470BE28E644B8008DF0C1 = {
 			isa = PBXGroup;
 			children = (
 				BE4470C928E644B8008DF0C1 /* SoapServiceConsumeExample */,
 				BE4470C828E644B8008DF0C1 /* Products */,
+				9A783B74BB4FD50061EC4DE2 /* Pods */,
+				9C6E7B8F011EAF18D390E984 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +89,7 @@
 				BE4470D328E644B9008DF0C1 /* Assets.xcassets */,
 				BE4470D528E644B9008DF0C1 /* LaunchScreen.storyboard */,
 				BE4470D828E644B9008DF0C1 /* Info.plist */,
+				BEC09DE428EE202C00570C1C /* SoapRequest.swift */,
 			);
 			path = SoapServiceConsumeExample;
 			sourceTree = "<group>";
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE4470DB28E644B9008DF0C1 /* Build configuration list for PBXNativeTarget "SoapServiceConsumeExample" */;
 			buildPhases = (
+				1775A0197AB093CB3E300ED5 /* [CP] Check Pods Manifest.lock */,
 				BE4470C328E644B8008DF0C1 /* Sources */,
 				BE4470C428E644B8008DF0C1 /* Frameworks */,
 				BE4470C528E644B8008DF0C1 /* Resources */,
+				31410BB5036659D3DD3B3AD7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,11 +162,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1775A0197AB093CB3E300ED5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SoapServiceConsumeExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		31410BB5036659D3DD3B3AD7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SoapServiceConsumeExample/Pods-SoapServiceConsumeExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SoapServiceConsumeExample/Pods-SoapServiceConsumeExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SoapServiceConsumeExample/Pods-SoapServiceConsumeExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BE4470C328E644B8008DF0C1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEC09DE528EE202C00570C1C /* SoapRequest.swift in Sources */,
 				BE4470CF28E644B8008DF0C1 /* ViewController.swift in Sources */,
 				BE4470CB28E644B8008DF0C1 /* AppDelegate.swift in Sources */,
 				BE4470CD28E644B8008DF0C1 /* SceneDelegate.swift in Sources */,
@@ -282,6 +354,7 @@
 		};
 		BE4470DC28E644B9008DF0C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1A296EEC347BD53DD36D32B /* Pods-SoapServiceConsumeExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +383,7 @@
 		};
 		BE4470DD28E644B9008DF0C1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7397F70C75EE25F1F82A7128 /* Pods-SoapServiceConsumeExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
