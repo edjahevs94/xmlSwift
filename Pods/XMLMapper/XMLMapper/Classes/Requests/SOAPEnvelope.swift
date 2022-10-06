@@ -21,8 +21,8 @@ public class SOAPEnvelope: XMLMappable {
     ]
     
     public init(soapMessage: SOAPMessage, soapInformation: SOAPInformation? = nil, soapVersion: SOAPVersion = .version1point1) {
-        xmlnsSOAP = "http://www.w3.org/2003/05/soap-envelope"
-        soapEncodingStyle = "http://www.oorsprong.org/websamples.countryinfo"
+        xmlnsSOAP = soapVersion.namespace
+        soapEncodingStyle = soapVersion.encodingStyle
         self.soapBody = SOAPBody(soapMessage: soapMessage)
         if let soapInformation = soapInformation {
             self.soapHeader = SOAPHeader(soapInformation: soapInformation)

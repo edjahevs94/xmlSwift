@@ -17,7 +17,8 @@ struct Service {
       
         let soapMessage = HolidayServiceMessage(soapAction: "web:CapitalCity")
         soapMessage.countryCode = "US"
-        let soapEnvelope = SOAPEnvelope(soapMessage: soapMessage)
+        let soapEnvelope = SOAPEnvelope(soapMessage: soapMessage, soapVersion: .version1point0)
+        
         print(soapEnvelope.toXMLString() ?? "nil")
         
         let service = Service(
@@ -45,7 +46,7 @@ struct Service {
         let envelope3 = SOAPEnvelope(soapMessage: message2!)
         //print(envelope3.toXMLString() ?? "nil")
         
-        AF.request("http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso", method: .post, parameters: soapEnvelope.toXML(), encoding: XMLEncoding.soap(withAction: "http://webservices.oorsprong.org/websamples.countryinfo#web:CapitalCity", soapVersion: .version1point0)).responseString { response in
+        AF.request("http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso", method: .post, parameters: soapEnvelope.toXML(), encoding: XMLEncoding.default).responseString { response in
             switch response.result {
             case .success(let token):
              completion(.success(token))
