@@ -21,6 +21,6 @@ open class SOAPInformation: XMLMappable {
     required public init?(map: XMLMap) {}
     
     open func mapping(map: XMLMap) {
-        xmlnsInformation <- map.attributes["xmlns:m"]
+        xmlnsInformation <- map.attributes["xmlns:"]
     }
 }

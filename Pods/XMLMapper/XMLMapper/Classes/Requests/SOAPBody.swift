@@ -22,6 +22,6 @@ public class SOAPBody: XMLMappable {
     required public init?(map: XMLMap) {}
     
     public func mapping(map: XMLMap) {
-        soapMessage <- map["m:\(soapAction ?? "")"]
+        soapMessage <- map[(soapAction ?? "")]
     }
 }

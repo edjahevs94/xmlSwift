@@ -13,7 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         callService()
-        callHoliday()
+  
     }
     
     func callService() {
@@ -26,16 +26,7 @@ class ViewController: UIViewController {
             }
         }
     }
-    func callHoliday() {
-        Service.getHoliday { response in
-            switch response {
-            case .success(let data):
-                print(data)
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
+  
 
 }
 

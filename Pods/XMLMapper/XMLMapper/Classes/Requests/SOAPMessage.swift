@@ -13,14 +13,14 @@ open class SOAPMessage: XMLMappable {
     private var xmlnsMessage: String?
     var soapAction: String?
     
-    public init(soapAction: String, nameSpace: String) {
+    public init(soapAction: String) {
         self.soapAction = soapAction
-        self.xmlnsMessage = nameSpace
+        //self.xmlnsMessage = nameSpace
     }
     
     required public init?(map: XMLMap) {}
     
     open func mapping(map: XMLMap) {
-        xmlnsMessage <- map.attributes["xmlns:m"]
+        xmlnsMessage <- map.attributes["xmlns:"]
     }
 }

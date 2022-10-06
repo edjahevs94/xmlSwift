@@ -14,14 +14,12 @@ struct Service {
     static func getStringData(parameters:[String:Any] = [:], completion: @escaping (Swift.Result<String, Error>) -> ()) {
         let headers: HTTPHeaders = [
          .authorization(username: "", password: "")]
-        //"<?xml version=\"\(version)\" encoding=\"\(encoding)\" standalone=\"\(standalone)\"?>"
-        let soapMessage = SOAPMessage(soapAction: "web:sCountryISOCode", nameSpace: "web:sCountryISOCode")
-        let content = SOAPMessage(XMLString: "<web:CapitalCity><web:sCountryISOCode>US</web:sCountryISOCode></web:CapitalCity>")
-        let body = SOAPBody(XMLString: content?.toXMLString() ?? "nil")
-        let envelope = SOAPEnvelope(XMLString: body?.toXMLString() ?? "nil")
-        let soapEnvelope = SOAPEnvelope(soapMessage: soapMessage, soapVersion: .version1point2)
-        let xml = soapEnvelope.toXMLString()
-        let xml2 = body?.toXMLString()
+      
+        let soapMessage = HolidayServiceMessage(soapAction: "web:CapitalCity")
+        soapMessage.countryCode = "US"
+        let soapEnvelope = SOAPEnvelope(soapMessage: soapMessage)
+        print(soapEnvelope.toXMLString() ?? "nil")
+        
         let service = Service(
             name: "dataservice/transaction.getView",
             parameters: [
@@ -42,12 +40,12 @@ struct Service {
         
         //print(service.toXMLString() ?? "nil")
         let service2 = Service2(country: Country(value: "US"))
-        print(service2.toXMLString() ?? "nil")
+        //print(service2.toXMLString() ?? "nil")
         let message2 = SOAPMessage(XMLString: service2.toXMLString() ?? "nil")
         let envelope3 = SOAPEnvelope(soapMessage: message2!)
-        print(envelope3.toXMLString() ?? "nil")
+        //print(envelope3.toXMLString() ?? "nil")
         
-        AF.request("http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso", method: .post, parameters: service2.toXML(), encoding: XMLEncoding.default).responseString { response in
+        AF.request("http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso", method: .post, parameters: soapEnvelope.toXML(), encoding: XMLEncoding.soap(withAction: "http://webservices.oorsprong.org/websamples.countryinfo#web:CapitalCity", soapVersion: .version1point0)).responseString { response in
             switch response.result {
             case .success(let token):
              completion(.success(token))
@@ -57,22 +55,7 @@ struct Service {
         }
         
         }
-    static func getHoliday(parameters:[String:Any] = [:], completion: @escaping (Swift.Result<String, Error>) -> ()) {
-        let soapMessage = HolidayServiceMessage(soapAction: "GetHolidaysAvaible", nameSpace: "http://holidaywebservice.com/HolidayService_v2")
-        soapMessage.countryCode = "UnitedStates"
-        let soapEnvelope = SOAPEnvelope(soapMessage: soapMessage)
-        print(soapEnvelope.toXMLString() ?? "nil")
-        
-        
-        AF.request("http://holidaywebservice.com/HolidayService_v2/HolidayService2.asmx?wsdl", method: .post, parameters: soapEnvelope.toXML(), encoding: XMLEncoding.soap(withAction: "http://holidaywebservice.com/HolidayService_v2#GetHolidaysAvaible")).responseString { response in
-            switch response.result {
-            case .success(let token):
-             completion(.success(token))
-            case .failure(let error):
-             completion(.failure(error))
-            }
-        }
-    }
+
     
     class Service: XMLMappable {
         var nodeName: String! = "SERVICE"
@@ -157,9 +140,11 @@ struct Service {
         override func mapping(map: XMLMap) {
             super.mapping(map: map)
 
-            countryCode <- map["web:countrycode"]
+            countryCode <- map["web:sCountryISOCode"]
         }
     }
+    
+    
     
     
     }

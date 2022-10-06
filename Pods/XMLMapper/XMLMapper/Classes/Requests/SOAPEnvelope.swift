@@ -21,8 +21,8 @@ public class SOAPEnvelope: XMLMappable {
     ]
     
     public init(soapMessage: SOAPMessage, soapInformation: SOAPInformation? = nil, soapVersion: SOAPVersion = .version1point1) {
-        xmlnsSOAP = soapVersion.namespace
-        soapEncodingStyle = soapVersion.encodingStyle
+        xmlnsSOAP = "http://www.w3.org/2003/05/soap-envelope"
+        soapEncodingStyle = "http://www.oorsprong.org/websamples.countryinfo"
         self.soapBody = SOAPBody(soapMessage: soapMessage)
         if let soapInformation = soapInformation {
             self.soapHeader = SOAPHeader(soapInformation: soapInformation)
@@ -32,7 +32,7 @@ public class SOAPEnvelope: XMLMappable {
     required public init?(map: XMLMap) {}
     
     public func mapping(map: XMLMap) {
-        soapEncodingStyle <- map.attributes["soap:encodingStyle"]
+        soapEncodingStyle <- map.attributes["xmlns:web"]
         xmlnsSOAP <- map.attributes["xmlns:soap"]
         soapHeader <- map["soap:Header"]
         soapBody <- map["soap:Body"]

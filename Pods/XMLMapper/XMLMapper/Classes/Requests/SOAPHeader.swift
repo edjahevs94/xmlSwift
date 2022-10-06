@@ -22,6 +22,6 @@ public class SOAPHeader: XMLMappable {
     required public init?(map: XMLMap) {}
     
     public func mapping(map: XMLMap) {
-        soapInformation <- map["m:\(informationName ?? "")"]
+        soapInformation <- map[(informationName ?? "")]
     }
 }
