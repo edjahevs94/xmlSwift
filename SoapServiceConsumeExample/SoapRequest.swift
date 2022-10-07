@@ -13,11 +13,13 @@ struct Service {
     
     static func getStringData(parameters:[String:Any] = [:], completion: @escaping (Swift.Result<String, Error>) -> ()) {
     
-        let soapMessage = ServiceMessage(soapAction: "web:CapitalCity")
-        soapMessage.countryCode = "US"
-        let soapEnvelope = SOAPEnvelope(soapMessage: soapMessage, soapVersion: .version1point0)
+       
         
         //print(soapEnvelope.toXMLString() ?? "nil")
+        let soapMessage = ServiceMessage(soapAction: "web:CapitalCity")
+        soapMessage.countryCode = "PE"
+        let soapEnvelope = SoapEnvelope(soapMessage: soapMessage, envelopeParameter_1: "http://www.w3.org/2003/05/soap-envelope", envelopeParameter_2: "http://www.oorsprong.org/websamples.countryinfo")
+        print(soapEnvelope.toXMLString() ?? "nil")
         
         AF.request("http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso", method: .post, parameters: soapEnvelope.toXML(), encoding: XMLEncoding.default).responseString { response in
             switch response.result {
@@ -30,7 +32,7 @@ struct Service {
         
         }
 
-    class ServiceMessage: SOAPMessage {
+    class ServiceMessage: SoapMessage {
 
         var countryCode: String?
 
@@ -40,8 +42,6 @@ struct Service {
             countryCode <- map["web:sCountryISOCode"]
         }
     }
-    
-    
     
     
     }

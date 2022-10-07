@@ -14,6 +14,11 @@
 		BE4470D428E644B9008DF0C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE4470D328E644B9008DF0C1 /* Assets.xcassets */; };
 		BE4470D728E644B9008DF0C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4470D528E644B9008DF0C1 /* LaunchScreen.storyboard */; };
 		BEC09DE528EE202C00570C1C /* SoapRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC09DE428EE202C00570C1C /* SoapRequest.swift */; };
+		BEC09DE828F05CAD00570C1C /* SoapEnvelope.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC09DE728F05CAC00570C1C /* SoapEnvelope.swift */; };
+		BEC09DEA28F05CDB00570C1C /* SoapMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC09DE928F05CDB00570C1C /* SoapMessage.swift */; };
+		BEC09DEC28F05F4600570C1C /* SoapBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC09DEB28F05F4600570C1C /* SoapBody.swift */; };
+		BEC09DF128F061CD00570C1C /* SoapHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC09DF028F061CD00570C1C /* SoapHeader.swift */; };
+		BEC09DF428F0622500570C1C /* SoapInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC09DF328F0622500570C1C /* SoapInformation.swift */; };
 		D6AE24D51236C95333638CF1 /* Pods_SoapServiceConsumeExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4DFFA5C7E659980FF716F2 /* Pods_SoapServiceConsumeExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +33,11 @@
 		BE4470D628E644B9008DF0C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE4470D828E644B9008DF0C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEC09DE428EE202C00570C1C /* SoapRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoapRequest.swift; sourceTree = "<group>"; };
+		BEC09DE728F05CAC00570C1C /* SoapEnvelope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoapEnvelope.swift; sourceTree = "<group>"; };
+		BEC09DE928F05CDB00570C1C /* SoapMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoapMessage.swift; sourceTree = "<group>"; };
+		BEC09DEB28F05F4600570C1C /* SoapBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoapBody.swift; sourceTree = "<group>"; };
+		BEC09DF028F061CD00570C1C /* SoapHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoapHeader.swift; sourceTree = "<group>"; };
+		BEC09DF328F0622500570C1C /* SoapInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoapInformation.swift; sourceTree = "<group>"; };
 		CF4DFFA5C7E659980FF716F2 /* Pods_SoapServiceConsumeExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoapServiceConsumeExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1A296EEC347BD53DD36D32B /* Pods-SoapServiceConsumeExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoapServiceConsumeExample.debug.xcconfig"; path = "Target Support Files/Pods-SoapServiceConsumeExample/Pods-SoapServiceConsumeExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +92,7 @@
 		BE4470C928E644B8008DF0C1 /* SoapServiceConsumeExample */ = {
 			isa = PBXGroup;
 			children = (
+				BEC09DE628F05C6600570C1C /* XMLSupport */,
 				BE4470CA28E644B8008DF0C1 /* AppDelegate.swift */,
 				BE4470CC28E644B8008DF0C1 /* SceneDelegate.swift */,
 				BE4470CE28E644B8008DF0C1 /* ViewController.swift */,
@@ -92,6 +103,18 @@
 				BEC09DE428EE202C00570C1C /* SoapRequest.swift */,
 			);
 			path = SoapServiceConsumeExample;
+			sourceTree = "<group>";
+		};
+		BEC09DE628F05C6600570C1C /* XMLSupport */ = {
+			isa = PBXGroup;
+			children = (
+				BEC09DE728F05CAC00570C1C /* SoapEnvelope.swift */,
+				BEC09DE928F05CDB00570C1C /* SoapMessage.swift */,
+				BEC09DEB28F05F4600570C1C /* SoapBody.swift */,
+				BEC09DF028F061CD00570C1C /* SoapHeader.swift */,
+				BEC09DF328F0622500570C1C /* SoapInformation.swift */,
+			);
+			path = XMLSupport;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +236,11 @@
 				BE4470CF28E644B8008DF0C1 /* ViewController.swift in Sources */,
 				BE4470CB28E644B8008DF0C1 /* AppDelegate.swift in Sources */,
 				BE4470CD28E644B8008DF0C1 /* SceneDelegate.swift in Sources */,
+				BEC09DEA28F05CDB00570C1C /* SoapMessage.swift in Sources */,
+				BEC09DF428F0622500570C1C /* SoapInformation.swift in Sources */,
+				BEC09DE828F05CAD00570C1C /* SoapEnvelope.swift in Sources */,
+				BEC09DEC28F05F4600570C1C /* SoapBody.swift in Sources */,
+				BEC09DF128F061CD00570C1C /* SoapHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
