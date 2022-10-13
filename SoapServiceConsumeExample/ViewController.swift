@@ -9,6 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var capitalLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -17,16 +20,19 @@ class ViewController: UIViewController {
     }
     
     func callService() {
-        Service.getStringData { response in
-            switch response {
+        Service.shared.getStringData(capitalCode: "US") { (response) in
+            switch response.result {
             case .success(let data):
-                print(data)
+                print(data.body?.capitalResponse?.name ?? "nil")
+                self.capitalLabel.text = data.body?.capitalResponse?.name
             case .failure(let error):
                 print(error)
+                
             }
+            
+            
         }
     }
-  
 
 }
 

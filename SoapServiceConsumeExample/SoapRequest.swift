@@ -11,23 +11,18 @@ import XMLMapper
 
 struct Service {
     
-    static func getStringData(parameters:[String:Any] = [:], completion: @escaping (Swift.Result<String, Error>) -> ()) {
+    static let shared = Service()
     
-       
+    func getStringData(capitalCode: String, completion: @escaping (AFDataResponse<SoapEnvelopeResponse<SoapBodyResponse>>) -> ()) {
+    
         
-        //print(soapEnvelope.toXMLString() ?? "nil")
         let soapMessage = ServiceMessage(soapAction: "web:CapitalCity")
-        soapMessage.countryCode = "PE"
+        soapMessage.countryCode = capitalCode
         let soapEnvelope = SoapEnvelope(soapMessage: soapMessage, envelopeParameter_1: "http://www.w3.org/2003/05/soap-envelope", envelopeParameter_2: "http://www.oorsprong.org/websamples.countryinfo")
         print(soapEnvelope.toXMLString() ?? "nil")
         
-        AF.request("http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso", method: .post, parameters: soapEnvelope.toXML(), encoding: XMLEncoding.default).responseString { response in
-            switch response.result {
-            case .success(let data):
-             completion(.success(data))
-            case .failure(let error):
-             completion(.failure(error))
-            }
+        AF.request("http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso", method: .post, parameters: soapEnvelope.toXML(), encoding: XMLEncoding.default).responseXMLObject { (response : AFDataResponse<SoapEnvelopeResponse<SoapBodyResponse>>) in
+            completion(response)
         }
         
         }
